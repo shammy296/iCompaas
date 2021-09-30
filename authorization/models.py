@@ -4,8 +4,9 @@ from django.db import models
 
 class User(AbstractUser):
 
-    groups = models.ForeignKey(Group, on_delete=models.CASCADE, default=None, null=True)
+    groups = models.ManyToManyField(Group)
     contact = models.CharField(unique=True, max_length=15)
+    report_to = models.ForeignKey('self', on_delete=models.PROTECT, default=None, null=True, blank=True)
 
     def __str__(self):
         return self.username

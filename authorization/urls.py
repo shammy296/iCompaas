@@ -5,7 +5,7 @@ from authorization.views import UserInfoView, RegisterView, ResetPasswordView, L
 
 urlpatterns = [
     path('user/', UserInfoView.as_view()),
-    path('user/<int:pk>', UserInfoView.as_view()),
+    path('user/<int:pk>/', UserInfoView.as_view()),
     path('register/', RegisterView.as_view()),
     path('reset_password/', ResetPasswordView.as_view()),
     path('login/', LoginView.as_view(), name='knox_login'),
