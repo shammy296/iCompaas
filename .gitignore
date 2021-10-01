@@ -3,6 +3,7 @@
 venv
 log/
 /__pycache__/
+node_modules
 
 # Ignore generated files
 db.sqlite3
