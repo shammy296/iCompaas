@@ -22,4 +22,4 @@ class KnoxUserSerializer(serializers.ModelSerializer):
 class UserInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'groups', 'is_active', 'is_superuser', 'date_joined')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'phone', 'groups', 'is_active', 'is_superuser', 'date_joined')

@@ -102,8 +102,8 @@ WSGI_APPLICATION = 'iCompaas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'icompaas',
+        'ENGINE': 'django.db.backends.sqlite3',  # Postgres driver
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Postgres DB name
         'USER': 'admin_user',
         'PASSWORD': '@$!@123[45]',
         'HOST': 'localhost',  # Change Host for RDS DB instance

@@ -20,7 +20,7 @@ class LoginView(views.LoginView):
             if request.data.get('username'):
                 user = User.objects.get(username=request.data.get('username'))
             elif request.data.get('phone'):
-                user = User.objects.get(contact=request.data.get('phone'))
+                user = User.objects.get(phone=request.data.get('phone'))
             else:
                 user = User.objects.get(email=request.data.get('email'))
 
@@ -41,20 +41,43 @@ class UserInfoView(APIView):
 
     def get(self, request):
         try:
-            if request.GET.get('id'):
-                instance = self.model_object.get(id=request.GET.get('id'))
-                return Response(self.serializer_class(instance).data)
+            if request.GET.get('child'):
+                queryset = self.model_object.filter(report_to=request.user)
+                return Response(self.serializer_class(queryset, many=True).data)
 
-            queryset = self.model_object.filter(report_to=request.user)
+            instance = self.model_object.get(username=request.user.username)
 
-            return Response(self.serializer_class(queryset, many=True).data)
+            return Response(self.serializer_class(instance).data)
 
         except ObjectDoesNotExist:
             raise ValidationError({'msg': 'User not found.'})
 
+    def post(self, request):
+        try:
+            if self.model_object.filter(username=request.data.get('username')).exists():
+                raise ValidationError('Username already used.')
+
+            if self.model_object.filter(email=request.data.get('email')).exists():
+                raise ValidationError('Email already used.')
+
+            if self.model_object.filter(phone=request.data.get('phone')).exists():
+                raise ValidationError('Phone already used.')
+
+            instance = self.model_object.create_user(request.data.get('username'), request.data.get('email'), request.data.get('password'))
+            instance.first_name = request.data.get('first_name')
+            instance.last_name = request.data.get('last_name')
+            instance.phone = request.data.get('phone')
+            instance.report_to = request.user
+            instance.save()
+
+            return Response({'msg', 'User created.'}, status=status.HTTP_204_NO_CONTENT)
+
+        except ValueError:
+            raise ValueError({'msg': 'Username, email, password are mandatory fields.'})
+
     def put(self, request, **kwargs):
         try:
-            instance = self.model_object.get(id=kwargs.get('pk'))
+            instance = self.model_object.get(username=request.user.username)
             update_keys = request.data.keys()
 
             if 'username' in update_keys:
@@ -84,9 +107,9 @@ class UserInfoView(APIView):
                     instance.groups.add(*[Group.objects.filter(id__in=request.data.get('groups'))])
 
             if 'phone' in update_keys:
-                if self.model_object.filter(contact=request.data.get('phone')).exists():
+                if self.model_object.filter(phone=request.data.get('phone')).exists():
                     raise ValidationError({'msg': 'Phone already used.'})
-                instance.contact = request.data.get('phone')
+                instance.phone = request.data.get('phone')
 
             if 'password' in update_keys:
                 if authenticate(username=instance.username, password=request.data.get('old_password')):
@@ -125,13 +148,13 @@ class RegisterView(APIView):
             if self.model_object.filter(email=request.data.get('email')).exists():
                 raise ValidationError('Email already used.')
 
-            if self.model_object.filter(contact=request.data.get('phone')).exists():
+            if self.model_object.filter(phone=request.data.get('phone')).exists():
                 raise ValidationError('Phone already used.')
 
             instance = self.model_object.create_user(request.data.get('username'), request.data.get('email'), request.data.get('password'))
             instance.first_name = request.data.get('first_name')
             instance.last_name = request.data.get('last_name')
-            instance.contact = request.data.get('phone')
+            instance.phone = request.data.get('phone')
             instance.save()
 
             return Response({'msg', 'User created.'}, status=status.HTTP_204_NO_CONTENT)
