@@ -1,262 +1,177 @@
 {
-	"id": "e7f3d670-b0e0-6c9a-9d2a-7c9ea05e52d4",
-	"name": "iCompaas",
-	"description": "",
-	"order": [
-		"33e52b59-a6e9-231b-3fa1-e3741b0783b5",
-		"bc5a1f2e-9a76-5a61-1c19-311509534e05",
-		"13125ee9-8d51-355a-b07c-3c5ffa038b8e",
-		"70ac7543-d28a-e26f-e895-cb5d1f8ba8a9",
-		"6eb43845-f7f9-11dc-bce4-e461b5894fca",
-		"e4869336-d0dc-984f-8bc4-386902ef565b",
-		"d943ce1f-a0d4-04e2-e2b7-9b699dfcce02"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1632921152111,
-	"owner": 0,
-	"public": false,
-	"requests": [
+	"info": {
+		"_postman_id": "927131c5-0e60-4701-9de4-9e95c74dbeeb",
+		"name": "iCompaas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "13125ee9-8d51-355a-b07c-3c5ffa038b8e",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:5000/api/auth/register/",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1633197198982,
-			"name": "Register user",
-			"description": "",
-			"collectionId": "e7f3d670-b0e0-6c9a-9d2a-7c9ea05e52d4",
-			"responses": [],
-			"rawModeData": "{\n\t\"username\": \"shammy296\",\n\t\"email\": \"tets@tets.com\",\n\t\"phone\": \"+918091665739\",\n\t\"password\": \"shammy123\",\n\t\"first_name\": \"Shammy\",\n\t\"last_name\": \"Singh\"\n}"
-		},
-		{
-			"id": "33e52b59-a6e9-231b-3fa1-e3741b0783b5",
-			"headers": "Authorization: Basic c2hhbW15Mjk2OnNoYW1teTEyMw==\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "Basic c2hhbW15Mjk2OnNoYW1teTEyMw==",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:5000/api/auth/user/",
-			"queryParams": [
-				{
-					"key": "child",
-					"value": "true",
-					"equals": true,
-					"description": "",
-					"enabled": false
-				}
-			],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1633197419517,
 			"name": "User Details",
-			"description": "",
-			"collectionId": "e7f3d670-b0e0-6c9a-9d2a-7c9ea05e52d4",
-			"responses": []
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic c2hhbW15Mjk2OnNoYW1teTEyMw=="
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/auth/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "child",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "6eb43845-f7f9-11dc-bce4-e461b5894fca",
-			"headers": "Content-Type: application/json\nAuthorization: Basic c2hhbW15Mjk2OnNoYW1teTEyMw==\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "Basic c2hhbW15Mjk2OnNoYW1teTEyMw==",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:5000/api/auth/user/1/",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1633197747241,
-			"name": "Delete user",
-			"description": "",
-			"collectionId": "e7f3d670-b0e0-6c9a-9d2a-7c9ea05e52d4",
-			"responses": []
-		},
-		{
-			"id": "70ac7543-d28a-e26f-e895-cb5d1f8ba8a9",
-			"headers": "Content-Type: application/json\nAuthorization: Basic c2hhbW15Mjk2OnNoYW1teTEyMw==\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "Basic c2hhbW15Mjk2OnNoYW1teTEyMw==",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:5000/api/auth/user/2/",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1633197753277,
-			"name": "Update user",
-			"description": "",
-			"collectionId": "e7f3d670-b0e0-6c9a-9d2a-7c9ea05e52d4",
-			"responses": [],
-			"rawModeData": "{\n\t\"username\": \"shammy2961\",\n\t\"phone\": \"+918092665739\",\n\t\"first_name\": \"Shammy\",\n\t\"last_name\": \"Singh\"\n}"
-		},
-		{
-			"id": "bc5a1f2e-9a76-5a61-1c19-311509534e05",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:5000/api/auth/login/",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1633193997210,
 			"name": "Login",
-			"description": "",
-			"collectionId": "e7f3d670-b0e0-6c9a-9d2a-7c9ea05e52d4",
-			"responses": [],
-			"rawModeData": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\"\n}"
-		},
-		{
-			"id": "d943ce1f-a0d4-04e2-e2b7-9b699dfcce02",
-			"headers": "Content-Type: application/json\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\"\n}"
 				},
-				{
-					"key": "Authorization",
-					"value": "Basic YWRtaW46YWRtaW4=",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:5000/api/auth/user/",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e7f3d670-b0e0-6c9a-9d2a-7c9ea05e52d4",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Add user",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1633194644957,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"username\": \"shammy2961\",\n\t\"email\": \"tets@tets.co\",\n\t\"password\": \"shammy123\",\n\t\"first_name\": \"Shammy\",\n\t\"last_name\": \"Singh\"\n}"
+				"url": "localhost:5000/api/auth/login/"
+			},
+			"response": []
 		},
 		{
-			"id": "e4869336-d0dc-984f-8bc4-386902ef565b",
-			"headers": "Authorization: Basic c2hhbW15Mjk2OnNoYW1teTEyMw==\n",
-			"headerData": [
-				{
-					"key": "Authorization",
-					"value": "Basic c2hhbW15Mjk2OnNoYW1teTEyMw==",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "localhost:5000/api/auth/user/",
-			"queryParams": [
-				{
-					"key": "id",
-					"value": "1",
-					"equals": true,
-					"description": "",
-					"enabled": false
-				}
-			],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1633197449264,
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"shammy296\",\n\t\"email\": \"tets@tets.com\",\n\t\"phone\": \"+918091665739\",\n\t\"password\": \"shammy123\",\n\t\"first_name\": \"Shammy\",\n\t\"last_name\": \"Singh\"\n}"
+				},
+				"url": "localhost:5000/api/auth/register/"
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic c2hhbW15Mjk2OnNoYW1teTEyMw=="
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"shammy2961\",\n\t\"phone\": \"+918092665739\",\n\t\"first_name\": \"Shammy\",\n\t\"last_name\": \"Singh\"\n}"
+				},
+				"url": "localhost:5000/api/auth/user/2/"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic c2hhbW15Mjk2OnNoYW1teTEyMw=="
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": "localhost:5000/api/auth/user/1/"
+			},
+			"response": []
+		},
+		{
 			"name": "User Details for child user",
-			"description": "",
-			"collectionId": "e7f3d670-b0e0-6c9a-9d2a-7c9ea05e52d4",
-			"responses": []
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic c2hhbW15Mjk2OnNoYW1teTEyMw=="
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/auth/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"user",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"shammy2961\",\n\t\"email\": \"tets@tets.co\",\n\t\"password\": \"shammy123\",\n\t\"first_name\": \"Shammy\",\n\t\"last_name\": \"Singh\"\n}"
+				},
+				"url": "localhost:5000/api/auth/user/"
+			},
+			"response": []
 		}
 	]
 }

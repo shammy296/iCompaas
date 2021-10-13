@@ -70,7 +70,7 @@ class UserInfoView(APIView):
             instance.report_to = request.user
             instance.save()
 
-            return Response({'msg', 'User created.'}, status=status.HTTP_204_NO_CONTENT)
+            return Response({'msg': 'User created.'}, status=status.HTTP_204_NO_CONTENT)
 
         except ValueError:
             raise ValueError({'msg': 'Username, email, password are mandatory fields.'})
@@ -157,7 +157,7 @@ class RegisterView(APIView):
             instance.phone = request.data.get('phone')
             instance.save()
 
-            return Response({'msg', 'User created.'}, status=status.HTTP_204_NO_CONTENT)
+            return Response({'msg': 'User created.'}, status=status.HTTP_204_NO_CONTENT)
 
         except ValueError:
             raise ValueError({'msg': 'Username, email, password are mandatory fields.'})
@@ -172,7 +172,7 @@ class ResetPasswordView(APIView):
             instance = self.model_object.get(email=request.data.get('email'))
             instance.set_password(request.data.get('password'))
             instance.save()
-            return Response({'msg', 'Password changed successfully.'}, status=status.HTTP_204_NO_CONTENT)
+            return Response({'msg': 'Password changed successfully.'}, status=status.HTTP_204_NO_CONTENT)
 
         except ObjectDoesNotExist:
             raise ValidationError({'msg': 'User not found.'})
